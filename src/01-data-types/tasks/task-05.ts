@@ -9,3 +9,45 @@
  * 
  * display the attendance data using console.log.
  */
+
+type Attendance = {
+    EID: string;
+    name: string;
+    date: string;
+    checkin: string;
+    checkout: string;
+    workinghours: string;
+    present: boolean;
+};
+
+const attendance: Attendance[] = [
+    {
+        EID: "015",
+        name: "Kang Haerin",
+        date: "21-07-2026",
+        checkin: "09:00",
+        checkout: "17:00",
+        workinghours: "8 Hours",
+        present: true,
+    },
+    {
+        EID: "011",
+        name: "Marsh Danielle",
+        date: "22-07-2026",
+        checkin: "-",
+        checkout: "-",
+        workinghours: "-",
+        present: false,
+    },
+    {
+        EID: "007",
+        name: "Kim Minji",
+        date: "23-07-2026",
+        checkin: "09:00",
+        checkout: "17:00",
+        workinghours: "8 Hours",
+        present: true,  
+    }
+];
+
+console.log(attendance);

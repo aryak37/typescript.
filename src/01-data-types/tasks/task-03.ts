@@ -9,3 +9,33 @@
  * 
  * display the student data using console.log.
  */
+
+type Student = {
+    studentID: string
+    fullname: string
+    age: number
+    status: boolean
+};
+
+const students: Student[] = [
+    {
+        studentID: "0001",
+        fullname: "Aryasatya Athallah",
+        age: 16,
+        status: true
+    },
+    {
+        studentID: "0002",
+        fullname: "Prama Javas Aryatama",
+        age: 17,
+        status: true
+    },
+    {
+        studentID: "0003",
+        fullname: "Elang Dimas Syadewa",
+        age: 17,
+        status: true
+    }
+];
+
+console.log(students);
