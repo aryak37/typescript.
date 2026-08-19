@@ -13,3 +13,21 @@
  * - Discount amount
  * - Final payment
  */
+
+const hourlyrate = 8000;
+const hours = 7;
+const minutes = 35;
+
+const totalminutes: number = hours * 60 + minutes;
+const remainingminutes: number = totalminutes % 60;
+const billedhours: number = (totalminutes % 60 === 0) ? totalminutes / 60 : ~~(totalminutes / 60) + 1;
+const paymentbeforediscount: number = billedhours * hourlyrate;
+const discountamount: number = (totalminutes > 5 * 60) ? paymentbeforediscount * 0.15 : 0;
+const finalPayment: number = paymentbeforediscount - discountamount;
+
+console.log(`Total playing time : ${totalminutes} minutes`);
+console.log(`Remaining minutes  : ${remainingminutes} minutes`);
+console.log(`Total billed hours : ${billedhours} hours`);
+console.log(`Payment before disc: ${paymentbeforediscount}`);
+console.log(`Discount amount    : ${discountamount}`);
+console.log(`Final payment      : ${finalPayment}`);

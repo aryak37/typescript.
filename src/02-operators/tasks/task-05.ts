@@ -33,3 +33,29 @@
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
  */
+
+const studentname: string = "Alya Putri";
+const GPA: number = 3.89;
+const familyincome: number = 4200000;
+const competitioncount: number = 4;
+const hasdiciplinaryrecord: boolean = false;
+const documentscomplete: boolean = true;
+
+const totalbudget: number = 50000000;
+
+const isGpaValid = GPA >= 3.75;
+const isIncomeValid = familyincome < 5000000;
+const isCompetitionsValid = competitioncount >= 3;
+const isCleanRecord = !hasdiciplinaryrecord;
+const isDocsValid = documentscomplete === true;
+
+const isAccepted = isGpaValid && isIncomeValid && isCompetitionsValid && isCleanRecord && isDocsValid;
+
+const scholarship = isAccepted ? 12000000 : 0;
+
+const remainingbudget = totalbudget - scholarship
+
+console.log(`Student Name: ${studentname}`);
+console.log(`Status: ${isAccepted ? "ACCEPTED" : "NOT ACCEPTED"}`);
+console.log(`Scholarship Amount Awarded: Rp${scholarship.toLocaleString()}`);
+console.log(`Remaining University Budget: Rp${remainingbudget.toLocaleString()}`);

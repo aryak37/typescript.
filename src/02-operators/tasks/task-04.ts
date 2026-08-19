@@ -22,3 +22,34 @@
  *  - Calculate the final payment.
 
  */
+
+const items = [
+  { name: "Mechanical Keyboard", price: 850000, quantity: 1 },
+  { name: "Wireless Mouse", price: 275000, quantity: 2 },
+  { name: "Mouse Pad", price: 120000, quantity: 1 }
+];
+
+const isPremiumMember = true;
+
+let subtotal = 0;
+let totalItemCount = 0;
+
+for (const item of items) {
+  subtotal += item.price * item.quantity;
+  for (let i = 0; i < item.quantity; i++) {
+    totalItemCount++;
+  }
+}
+
+const discountPercentage = subtotal > 1000000 ? 0.10 : 0;
+const discountAmount = subtotal * discountPercentage;
+
+const shippingFee = isPremiumMember ? 0 : 25000;
+
+const finalPayment = subtotal - discountAmount + shippingFee;
+
+console.log(`Total Items Purchased : ${totalItemCount}`);
+console.log(`Subtotal             : Rp ${subtotal}`);
+console.log(`Discount             : Rp ${discountAmount}`);
+console.log(`Shipping Fee         : Rp ${shippingFee}`);
+console.log(`Final Payment        : Rp ${finalPayment}`);

@@ -32,7 +32,7 @@ const books: Book[] = [
     {
         ISBN: "978-602-03-3295-7",
         title: "Roblox",
-        author: "Rolel Box",
+        author: "Robert L. Ox",
         pages: 529,
         category: "Video Game",
         isAvailable: false,
@@ -42,9 +42,10 @@ const books: Book[] = [
         title: "How to Make Spoon",
         author: "Spoon Spoonicus",
         pages: 1000,
-        category: "Educational",
+        category: "Utensils",
         isAvailable: true
     }
 ];
 
 console.log(books);
+console.log(`Penulis : ${books[1].author}`)

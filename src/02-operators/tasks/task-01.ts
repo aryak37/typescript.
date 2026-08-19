@@ -14,3 +14,20 @@
  *  - Final payment
  * 2. Display the calculation results.
  */
+
+const friedriceqty: number = 3;
+const friedriceprice: number = 18000;
+const mineralwaterqty: number = 2;
+const mineralwaterprice: number = 5000;
+const discount: number = 10000;
+
+const totalfoodprice: number = friedriceqty * friedriceprice;
+const totaldrinkprice: number = mineralwaterqty * mineralwaterprice;
+const total: number = totalfoodprice + totaldrinkprice;
+const payment: number = total - discount;
+
+console.log(`Total Food Price : Rp ${totalfoodprice}`);
+console.log(`Total Drink Price: Rp ${totaldrinkprice}`);
+console.log(`Grand Total      : Rp ${total}`);
+console.log(`Discount         : Rp ${discount}`);
+console.log(`Final Payment    : Rp ${payment}`);
