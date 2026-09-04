@@ -24,7 +24,7 @@
  */
 const submissions = [
     {
-        student: "Alya",
+        student: "Zulfikar",
         submitted: true,
         score: 90
     },
@@ -54,3 +54,89 @@ const submissions = [
         score: 96
     }
 ];
+
+function countSubmittedAssignments(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let count: number = 0;
+    for (const submission of submissions) {
+        if (submission.submitted) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function countMissingAssignments(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let count: number = 0;
+    for (const submission of submissions) {
+        if (!submission.submitted) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function countPassedStudents(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let count: number = 0;
+    for (const submission of submissions) {
+        if (submission.submitted && submission.score >= 75) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function countStudentsRequiringRevision(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let count: number = 0;
+    for (const submission of submissions) {
+        if (submission.submitted && submission.score < 75) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function calculateAverageScore(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let totalScore: number = 0;
+    let submittedCount: number = 0;
+    for (const submission of submissions) {
+        if (submission.submitted) {
+            totalScore += submission.score;
+            submittedCount++;
+        }
+    }
+    return submittedCount > 0 ? totalScore / submittedCount : 0;
+}
+
+function findHighestScore(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let highest: number = 0;
+    for (const submission of submissions) {
+        if (submission.submitted && submission.score > highest) {
+            highest = submission.score;
+        }
+    }
+    return highest;
+}
+
+function findLowestScore(submissions: { student: string; submitted: boolean; score: number }[]): number {
+    let lowest: number = 100;
+    for (const submission of submissions) {
+        if (submission.submitted && submission.score < lowest) {
+            lowest = submission.score;
+        }
+    }
+    return lowest === 100 ? 0 : lowest;
+}
+
+function printSubmissionReport(submissions: { student: string; submitted: boolean; score: number }[]): void {
+    console.log(`Total Students: ${submissions.length}`);
+    console.log(`Submitted Assignments: ${countSubmittedAssignments(submissions)}`);
+    console.log(`Missing Assignments: ${countMissingAssignments(submissions)}`);
+    console.log(`Passed Students: ${countPassedStudents(submissions)}`);
+    console.log(`Students Requiring Revision: ${countStudentsRequiringRevision(submissions)}`);
+    console.log(`Average Score: ${calculateAverageScore(submissions).toFixed(2)}`);
+    console.log(`Highest Score: ${findHighestScore(submissions)}`);
+    console.log(`Lowest Score: ${findLowestScore(submissions)}`);
+}
+
+const report = printSubmissionReport(submissions);
+console.log(report);

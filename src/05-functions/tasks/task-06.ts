@@ -26,21 +26,53 @@ const sales = [
 ];
 
 function calculateTotalSales(sales: number[]): number {
-
+    let total: number = 0;
+    for (let i: number = 0; i < sales.length; i++) {
+        total += sales[i];
+    }
+    return total;
 }
 
 function findHighestTransaction(sales: number[]): number {
-
+    let highest: number = sales[0];
+    for (let i: number = 1; i < sales.length; i++) {
+        if (sales[i] > highest) {
+            highest = sales[i];
+        }
+    }
+    return highest;
 }
 
 function findLowestTransaction(sales: number[]): number {
-
+    let lowest: number = sales[0];
+    for (let i: number = 1; i < sales.length; i++) {
+        if (sales[i] < lowest) {
+            lowest = sales[i];
+        }
+    }
+    return lowest;
 }
 
 function calculateAverageSale(sales: number[]): number {
-
+    let sum: number = 0;
+    for (let i: number = 0; i < sales.length; i++) {
+        sum += sales[i];
+    }
+    return sum / sales.length;
 }
 
 function countLargeTransactions(sales: number[], minimumAmount: number): number {
-
+    let count: number = 0;
+    for (let i: number = 0; i < sales.length; i++) {
+        if (sales[i] > minimumAmount) {
+            count++;
+        }
+    }
+    return count;
 }
+
+console.log(`Total Sales: Rp${calculateTotalSales(sales)}`);
+console.log(`Highest Transaction: Rp${findHighestTransaction(sales)}`);
+console.log(`Lowest Transaction: Rp${findLowestTransaction(sales)}`);
+console.log(`Average Transaction: Rp${calculateAverageSale(sales)}`);
+console.log(`Number of Transactions Above Rp500,000: ${countLargeTransactions(sales, 500000)}`);

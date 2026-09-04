@@ -36,7 +36,7 @@
 
 const enrollments = [
     {
-        student: "Alya",
+        student: "Zulfikar",
         course: "TypeScript",
         completed: true,
         score: 91,
@@ -92,3 +92,58 @@ const enrollments = [
         duration: 20
     }
 ];
+
+
+function countTotalEnrollments(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    return enrollments.length;
+}
+
+function countCompletedEnrollments(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    let count = 0;
+    for (const enrollment of enrollments) {
+        if (enrollment.completed) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function countIncompleteEnrollments(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    return countTotalEnrollments(enrollments) - countCompletedEnrollments(enrollments);
+}
+
+function calculateCompletionPercentage(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    const total = countTotalEnrollments(enrollments);
+    const completed = countCompletedEnrollments(enrollments);
+    return total > 0 ? (completed / total) * 100 : 0;
+}
+
+function findHighestScore(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    let highest = -Infinity;
+    for (const enrollment of enrollments) {
+        if (enrollment.score > highest) {
+            highest = enrollment.score;
+        }
+    }
+    return highest;
+}
+
+function findLowestScore(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    let lowest = Infinity;
+    for (const enrollment of enrollments) {
+        if (enrollment.score < lowest) {
+            lowest = enrollment.score;
+        }
+    }
+    return lowest;
+}
+
+function calculateAverageScore(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): number {
+    const total = enrollments.reduce((sum, enrollment) => sum + enrollment.score, 0);
+    const count = countTotalEnrollments(enrollments);
+    return count > 0 ? total / count : 0;
+}
+
+function getPassingStudents(enrollments: { student: string; course: string; completed: boolean; score: number; duration: number }[]): string[] {
+    return enrollments.filter(enrollment => enrollment.score >= 75).map(enrollment => enrollment.student);
+}

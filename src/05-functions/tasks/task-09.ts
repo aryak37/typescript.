@@ -63,3 +63,19 @@ const patients = [
         bill: 350000
     }
 ];
+
+
+function countAdmittedPatients(patients: { id: string; name: string; age: number; department: string; admitted: boolean; bill: number }[]): number {
+    let count: number = 0;
+    for (const patient of patients) {
+        if (patient.admitted) {
+            count++;
+        }
+    }
+    return count;
+}
+
+const totalAdmittedPatients = countAdmittedPatients(patients);
+const totalDischargedPatients = patients.length - totalAdmittedPatients;
+console.log(`Total Admitted Patients: ${totalAdmittedPatients}`);
+console.log(`Total Discharged Patients: ${totalDischargedPatients}`);

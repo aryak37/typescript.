@@ -26,3 +26,15 @@ const students = [
 ];
 
 const correctAnswers = ["A", "B", "C", "A", "B"];
+
+const studentscore = students.map((student) => {
+    const score = student.answers.reduce((total, answer, index) => {
+        return answer === correctAnswers[index] ? total + 20 : total;
+    }, 0);
+
+    return {...student, score};
+});
+
+
+
+console.log(`Students Score: ${studentscore.map(score => score.score). join()}`)

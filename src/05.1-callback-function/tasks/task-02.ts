@@ -44,3 +44,4 @@ function showGrade(score: number) {
 // implementation of callback function
 processScores(scores, printScore)
 processScores(scores, showGrade)
+
